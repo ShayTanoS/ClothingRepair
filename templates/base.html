@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clothing Repair</title>
+</head>
+<body>
+<header>
+    <a href="{% if user.is_staff or user.is_superuser %} {% url 'employees_home'%}{% else %} {% url 'home' %}{% endif %}">Home</a>
+</header>
+{% block content %}
+{% endblock %}
+</body>
+</html>

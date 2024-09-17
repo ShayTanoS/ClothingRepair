@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    {% include 'inout.html' %}
+    <table>
+    <tbody>
+        <tr>
+            <th class="sticker" style="background-image: url('{% static 'sticker.jpg' %}');"><a href="{% url 'add_problem' %}">+</a></th>
+            {% if problems %}
+                <th class="sticker" style="background-image: {% static 'sticker.png' %};">{{ problems.0 }}</th>
+            {% else %}
+                <th class="sticker"></th>
+            {% endif %}
+            {% if problems|length > 1 %}
+                <th class="sticker" style="background-image: {% static 'sticker.png' %};">{{ problems.1 }}</th>
+            {% else %}
+                <th class="sticker"></th>
+            {% endif %}
+        </tr>
+        <tr>
+            {% if problems|length > 2 %}
+                <th class="sticker" style="background-image: url('{% static 'sticker.jpg' %}');">{{ problems.2 }}</th>
+            {% else %}
+                <th class="sticker"></th>
+            {% endif %}
+            {% if problems|length > 3 %}
+                <th class="sticker" style="background-image: url('{% static 'sticker.jpg' %}');">{{ problems.3 }}</th>
+            {% else %}
+                <th class="sticker"></th>
+            {% endif %}
+            <th><a href="{% url 'list_active' %}">More</a></th>
+        </tr>
+    </tbody>
+    </table>
+{% endblock %}
+
+<style>
+    .sticker {
+        width: 150px;
+        height: 150px;
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        vertical-align: middle;
+        color: black;
+        font-weight: bold;
+        display: table-cell;
+    }
+</style>

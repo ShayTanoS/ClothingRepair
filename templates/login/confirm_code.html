@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Введіть код</h1>
+    <form action="{% url 'confirm_code' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+        {{ message }}
+    <button type="submit" id="submitButton">Submit</button>
+    </form>
+{% endblock %}

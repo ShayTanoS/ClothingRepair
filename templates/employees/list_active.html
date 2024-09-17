@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <ul>
+    {% for problem in problems %}
+        <li>{{ problem }}</li>
+    {% endfor %}
+    </ul>
+    <a href="{% url 'list_archive' %}">Archive</a>
+{% endblock %}

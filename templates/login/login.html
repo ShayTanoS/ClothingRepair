@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+	Login PAGE
+    <h2>Перед тим як ввести username, активуйте бота за посиланням</h2>
+    <h2><a href="https://t.me/clothing_repair_bot" target="_blank" style="text-decoration: none">Bot</a></h2>
+    <form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+        <input type="checkbox" id="confirmCheckbox">
+    <button type="submit" id="submitButton" disabled>Submit</button>
+    </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const submitButton = document.getElementById('submitButton');
+            const confirmCheckbox = document.getElementById('confirmCheckbox');
+
+            // Функція для перевірки стану чекбоксу
+            function checkCheckbox() {
+                submitButton.disabled = !confirmCheckbox.checked;
+            }
+
+            // Додаємо обробник подій для чекбоксу
+            confirmCheckbox.addEventListener('change', checkCheckbox);
+        });
+    </script>
+{% endblock %}
