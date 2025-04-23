@@ -24,7 +24,7 @@ class HomeView(View):
     template_name = 'employees/home.html'
 
     def get(self, request):
-        context = {'problems': ActiveProblem.objects.all()}
+        context = {'problems': (list(ActiveProblem.objects.all()[:4])+[False for _ in range(4)])[:4]}
         return render(request, self.template_name, context)
 
 

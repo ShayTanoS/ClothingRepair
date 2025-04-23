@@ -1,3 +1,7 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +9,10 @@
     <title>Clothing Repair</title>
 </head>
 <body>
-<header>
+<header class="align-content-center">
     <a href="{% if user.is_staff or user.is_superuser %} {% url 'employees_home'%}{% else %} {% url 'home' %}{% endif %}">Home</a>
 </header>
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 {% block content %}
 {% endblock %}
 </body>

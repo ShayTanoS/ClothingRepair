@@ -1,0 +1,39 @@
+body {
+    background-color: #a7acb1;
+}
+.sticker-container {
+    position: relative;
+    width: 25%;
+    height: auto;
+}
+
+.sticker-image {
+    width: 100%;
+    height: auto;
+}
+
+.sticker-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    pointer-events: none;
+}
+
+table{
+    width: 55%;
+    height: auto;
+}
+
+textarea{
+    width: 50%;
+    height: 20px;
+    border: 2px solid #ff712d;
+    border-radius: 4px;
+    background-color: orange;
+    margin-right: 10px;}

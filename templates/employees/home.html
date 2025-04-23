@@ -1,49 +1,36 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+    {% url 'add_problem' as add_problem_url %}
     {% include 'inout.html' %}
-    <table>
-    <tbody>
+    <table class="d-flex justify-content-center align-items-center">
+        <tbody>
         <tr>
-            <th class="sticker" style="background-image: url('{% static 'sticker.jpg' %}');"><a href="{% url 'add_problem' %}">+</a></th>
-            {% if problems %}
-                <th class="sticker" style="background-image: {% static 'sticker.png' %};">{{ problems.0 }}</th>
-            {% else %}
-                <th class="sticker"></th>
-            {% endif %}
-            {% if problems|length > 1 %}
-                <th class="sticker" style="background-image: {% static 'sticker.png' %};">{{ problems.1 }}</th>
-            {% else %}
-                <th class="sticker"></th>
-            {% endif %}
+                {% include 'pieces/sticker.html' with content='Add problem' link=add_problem_url %}
+            {% for i in problems|slice:":2" %}
+                {% include 'pieces/sticker.html' with content=i%}
+            {% endfor %}
         </tr>
         <tr>
-            {% if problems|length > 2 %}
-                <th class="sticker" style="background-image: url('{% static 'sticker.jpg' %}');">{{ problems.2 }}</th>
-            {% else %}
-                <th class="sticker"></th>
-            {% endif %}
-            {% if problems|length > 3 %}
-                <th class="sticker" style="background-image: url('{% static 'sticker.jpg' %}');">{{ problems.3 }}</th>
-            {% else %}
-                <th class="sticker"></th>
-            {% endif %}
-            <th><a href="{% url 'list_active' %}">More</a></th>
+            {% for i in problems|slice:"2:" %}
+                {% include 'pieces/sticker.html' with content=i link=''%}
+            {% endfor %}
+            <td class="sticker-container"><a href="{% url 'list_active' %}">
+                <img src="{% static 'img/sticker.png' %}" class="sticker-image">
+                <span class="sticker-text">More</span>
+            </a></td>
         </tr>
-    </tbody>
+        </tbody>
     </table>
+    <button type="button" id="openModalBtn">1</button>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var openModalBtn = document.getElementById('openModalBtn');
+            var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+            openModalBtn.addEventListener('click', function () {
+                myModal.show();
+            });
+        });
+    </script>
 {% endblock %}
-
-<style>
-    .sticker {
-        width: 150px;
-        height: 150px;
-        background-size: cover;
-        background-position: center;
-        text-align: center;
-        vertical-align: middle;
-        color: black;
-        font-weight: bold;
-        display: table-cell;
-    }
-</style>

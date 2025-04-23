@@ -4,7 +4,7 @@ from .forms import TelegramForm, ConfirmCodeForm
 from .functions import send_message_to_username
 from random import randint
 from .models import User
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login
 # Create your views here.
 
 class LoginView(View):

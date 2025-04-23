@@ -1,3 +1,4 @@
+<div class="align-content-center">
 {% if user.is_authenticated %}
         User: {{ user }}
         <form action="{% url 'logout' %}" method="post">
@@ -7,3 +8,4 @@
     {% else %}
         <a href="{% url 'login' %}">login</a>
     {% endif %}
+</div>

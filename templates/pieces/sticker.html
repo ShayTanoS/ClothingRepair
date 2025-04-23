@@ -1,0 +1,7 @@
+{% load static %}
+<td class="sticker-container">
+    <a href="{{ link }}">
+        <img src="{% static 'img/sticker.png' %}" class="sticker-image">
+        <span class="sticker-text">{{ content|default:"" }}</span>
+    </a>
+</td>
