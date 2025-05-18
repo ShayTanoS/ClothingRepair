@@ -11,7 +11,7 @@ class Problem(models.Model):
     ]
 
     ID = models.AutoField(primary_key=True)
-    name = models.CharField()
+    name = models.CharField(max_length=100, null=True, blank=True, default=None)
     problem = models.TextField()
     number = models.CharField(max_length=13)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='in_progress')
