@@ -1,5 +1,91 @@
 {% extends 'base.html' %}
 {% block content %}
     Main Page
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #f2f4f6; color: #1c1c1e; }
+    header, footer { background: #fff; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; }
+    .logo { font-weight: 600; font-size: 1.2rem; }
+    .button { background: #ffd233; border: none; padding: 0.7rem 1.4rem; font-weight: 600; cursor: pointer; border-radius: 6px; transition: background 0.3s ease; }
+    .button:hover { background: #e6bc2f; }
+    main { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+    section { margin-bottom: 3rem; }
+    .hero { display: flex; flex-direction: column; align-items: center; text-align: center; background: #fff; padding: 2rem; border-radius: 1rem; overflow: hidden; }
+    .hero img { max-width: 100%; border-radius: 1rem; margin-top: 1rem; }
+    .hero h1 { font-size: 2rem; margin: 1rem 0 0.5rem; }
+    .hero p { margin-bottom: 1rem; color: #555; }
+    .services, .portfolio { background: #fff; padding: 2rem; border-radius: 1rem; }
+    .services h2, .portfolio h2 { font-size: 2rem; margin-bottom: 1rem; }
+    .services-content { display: flex; gap: 2rem; }
+    .services img { width: 300px; border-radius: 1rem; object-fit: cover; }
+    .service-list { list-style: none; padding-left: 0; }
+    .service-list li { margin-bottom: 1rem; line-height: 1.5; }
+    .service-list strong { display: block; font-weight: 600; margin-bottom: 0.2rem; }
+    .portfolio-images { display: flex; overflow-x: auto; gap: 1rem; margin-top: 1rem; }
+    .portfolio-images img { width: 200px; border-radius: 1rem; object-fit: cover; }
+    .footer { background: #1c1c1e; color: #fff; padding: 2rem; display: flex; flex-direction: column; gap: 1rem; border-radius: 1rem 1rem 0 0; }
+    .footer-top { display: flex; justify-content: space-between; align-items: center; }
+    .footer-links { font-size: 0.9rem; line-height: 1.6; }
+    .footer-socials img { width: 20px; margin-right: 0.5rem; }
+  </style>
+
+ <header>
+    <div class="logo">✂ Atelier Essence</div>
+    <button class="button">Зробити замовлення</button>
+  </header>
+<main>
+    <section class="hero">
+      <h1>Індивідуальний пошив<br>що підкреслює ваш стиль</h1>
+      <p>Ми створюємо одяг, який виражає суть, смак і рівень життя кожного нашого клієнта.</p>
+      <button class="button">Зробити замовлення</button>
+      <img src="https://images.unsplash.com/photo-1602810313355-195f90a84a42" alt="Пошив костюма">
+    </section>
+
+    <section class="services">
+      <h2>Послуги</h2>
+      <div class="services-content">
+        <img src="https://images.unsplash.com/photo-1514995669114-b77c97b17b7e" alt="Послуги кравця">
+        <ul class="service-list">
+          <li><strong>01 Індивідуальний пошив</strong>Ідеальна посадка, з урахуванням стилю клієнта.</li>
+          <li><strong>02 Реставрація одягу</strong>Відновлення улюблених речей з високою точністю.</li>
+          <li><strong>03 Підгонка одягу</strong>Зміна розмірів, довжини, фасону за потребою.</li>
+          <li><strong>04 Випускні/весільні/ділове вбрання</strong>Спеціальні події — наша особлива увага.</li>
+        </ul>
+      </div>
+      <button class="button" style="margin-top: 1rem;">Зробити замовлення</button>
+    </section>
+
+    <section class="portfolio">
+      <h2>Портфоліо</h2>
+      <p>Ми не просто шиємо — ми втілюємо ідеї у тканині. Подивіться на частину робіт з реального життя клієнтів.</p>
+      <div class="portfolio-images">
+        <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2" alt="portfolio1">
+        <img src="https://images.unsplash.com/photo-1520975869010-309f7347d8f4" alt="portfolio2">
+        <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2" alt="portfolio3">
+      </div>
+      <button class="button" style="margin-top: 1rem;">Зробити замовлення</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="logo">✂ Atelier Essence</div>
+      <button class="button">Зробити замовлення</button>
+    </div>
+    <div class="footer-links">
+      вул. Незалежності 50, Київ<br>
+      Пн-Сб: 09:00 – 18:00<br>
+      +38 (097) 000 00 00<br>
+      email@example.com
+    </div>
+    <div class="footer-socials">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="fb">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="inst">
+    </div>
+  </footer>
+
     {% include 'inout.html' %}
 {% endblock %}
+
+
