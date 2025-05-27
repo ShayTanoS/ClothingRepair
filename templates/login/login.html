@@ -1,14 +1,94 @@
 {% extends 'base.html' %}
 {% block content %}
-	Login PAGE
-    <h2>Перед тим як ввести username, активуйте бота за посиланням</h2>
+
+    <style>
+      body {
+  background-color: #f4f4f4;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.login-box {
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 480px;
+}
+
+.login-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.tg-link {
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: underline;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.login-form .form-group {
+  margin-bottom: 15px;
+}
+
+.login-form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  outline: none;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.checkbox-group input {
+  margin-right: 8px;
+}
+
+.btn-submit {
+  background-color: #ffc107;
+  color: #000;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-submit:disabled {
+  background-color: #ddd;
+  color: #999;
+  cursor: not-allowed;
+}
+    </style>
+
+    <div class="login-box">
+    <h2 class="login-title">Перед тим як ввести username, активуйте бота за посиланням</h2>
     <h2><a href="https://t.me/clothing_repair_bot" target="_blank" style="text-decoration: none">Bot</a></h2>
-    <form action="{% url 'login' %}" method="post">
+    <form action="{% url 'login' %}" method="post" class="login-form">
     {% csrf_token %}
     {{ form }}
+        <div class="form-group">
         <input type="checkbox" id="confirmCheckbox">
-    <button type="submit" id="submitButton" disabled>Submit</button>
+          <label for="confirmCheckbox">Я активував(-ла) бота</label>
+        </div>
+      <button type="submit" id="submitButton" disabled>Submit</button>
     </form>
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const submitButton = document.getElementById('submitButton');
@@ -23,4 +103,6 @@
             confirmCheckbox.addEventListener('change', checkCheckbox);
         });
     </script>
+
+
 {% endblock %}

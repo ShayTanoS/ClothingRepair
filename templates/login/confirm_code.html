@@ -1,10 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Введіть код</h1>
+
+    <style>
+.confirm-box {
+  background-color: #f1f3f3;
+  padding: 40px;
+  max-width: 480px;
+  margin: 60px auto;
+  border-radius: 16px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.confirm-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+</style>
+
+    <div class="confirm-box">
+    <h1 class="confirm-title">Введіть код</h1>
     <form action="{% url 'confirm_code' %}" method="post">
     {% csrf_token %}
     {{ form }}
         {{ message }}
     <button type="submit" id="submitButton">Submit</button>
     </form>
+    </div>
 {% endblock %}
