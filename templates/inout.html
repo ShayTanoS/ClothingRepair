@@ -1,11 +1,11 @@
 <div class="align-content-center">
-{% if user.is_authenticated %}
+    {% if user.is_authenticated %}
         User: {{ user }}
         <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
             <button type="submit" class="btn">Log out</button>
         </form>
     {% else %}
-        <a href="{% url 'login' %}">login</a>
+        <a href="{% url 'login' %}">{{ login_text|default:"Login" }}</a>
     {% endif %}
 </div>

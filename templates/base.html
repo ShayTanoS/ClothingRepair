@@ -9,7 +9,7 @@
 </head>
 <body>
 <header class="align-content-center">
-    <a href="{% if user.is_staff or user.is_superuser %} {% url 'employees_home'%}{% else %} {% url 'home' %}{% endif %}">Home</a>
+
 </header>
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 {% block content %}
